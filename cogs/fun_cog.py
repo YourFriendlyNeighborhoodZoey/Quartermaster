@@ -4,8 +4,13 @@ This Cog contains all the events and commands used for fun and hat-tricks.
 """
 # IMPORTS
 #import [Module/Package]
+import logging
+
 from discord import app_commands
 from discord.ext import commands        # IMPORT COMMANDS FROM THE DISCORD.EXT MODULE.
+
+
+module_logger = logging.getLogger(__name__)
 
 
 class FunCog(commands.Cog):
@@ -26,8 +31,8 @@ class FunCog(commands.Cog):
 		try:
 			await ctx.send(message)
 		except commands.CommandError as e:
-			await ctx.send(e)
-			print (e)
+			logging.error(e)
+			await ctx.send(f'**`ERROR:`** {type(e).__name__} - {e}')
 
 
 def setup(bot):

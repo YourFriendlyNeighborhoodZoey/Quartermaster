@@ -4,7 +4,13 @@ This Cog contains all the events and commands related to operations at boot-time
 """
 # IMPORTS
 #import [Module/Package]
+import logging
+
 from discord.ext import commands        # IMPORT COMMANDS FROM THE DISCORD.EXT MODULE.
+
+
+module_logger = logging.getLogger(__name__)
+
 
 class Boot(commands.Cog):
 	"""Cog for boot-time events."""
@@ -20,7 +26,8 @@ class Boot(commands.Cog):
 		for guild in self.bot.guilds:
 			print(f'\n{self.bot.user} is connected to the following guilds:\n'
 				f'{guild.name}(id: {guild.id})')
-	
+
+
 def setup(bot):
 	"""Adds The Cog To The Client."""
 	bot.add_cog(Boot(bot))
