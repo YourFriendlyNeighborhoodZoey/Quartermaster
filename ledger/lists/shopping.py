@@ -1,7 +1,7 @@
 """Script Docstring
 """
 #import [package/module]
-from list import ItemEntry, ItemList
+from ledger.lists.list import ItemEntry, ItemList
 
 import logging
 
