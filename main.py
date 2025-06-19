@@ -6,7 +6,8 @@ Required 3RD-Party PyPi Packages:
 	- schedule (Currently Unimplemented)
 """
 # System Modules
-import os						#  For Directory Navigation
+import os						# For Directory Navigation
+import logging					# For Tracking Execution Flow
 
 # Discord API
 import discord
@@ -14,7 +15,10 @@ from discord.ext import commands
 # DotENV (Local Environment Variables)
 from dotenv import load_dotenv  # IMPORT LOAD_DOTENV FUNCTION FROM DOTENV MODULE.
 
+
 load_dotenv()  # LOADS THE .ENV FILE THAT RESIDES ON THE SAME LEVEL AS THE SCRIPT.
+module_logger = logging.getLogger(__name__)
+
 
 PREFIXES = ["/", "!"]
 TOKEN = os.environ['BOT_TOKEN']
