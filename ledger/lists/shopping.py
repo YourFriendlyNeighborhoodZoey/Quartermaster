@@ -6,7 +6,7 @@ from ledger.lists.list import ItemEntry, ItemList
 import logging
 
 
-module_logger = logging.Logger()
+module_logger = logging.getLogger()
 
 
 class ShoppingEntry(ItemEntry):

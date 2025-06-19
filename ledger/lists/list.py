@@ -3,7 +3,7 @@
 #import [package/module]
 import logging
 
-module_logger = logging.Logger()
+module_logger = logging.getLogger(__name__)
 
 
 class ItemEntry:
