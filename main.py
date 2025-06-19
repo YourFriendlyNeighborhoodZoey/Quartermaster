@@ -31,10 +31,12 @@ def load_cogs(cogs_dir: str = './cogs'):
 	for filename in os.listdir(cogs_dir):
 		if filename.endswith('.py'):
 			bot.load_extension(f'cogs.{filename[:-3]}')
+			module_logger.info("%s loaded." % filename[:-3].title().replace("_", ""))
 			print(f'Cog: {filename[:-3].title().replace("_", "")} loaded.')
 		elif filename == "__pycache__":
 			continue
 		else:
+			module_logger.warning("Unable to load %s." % filename[:-3])
 			print(f'Cog: Unable to load {filename[:-3]}')
 
 
