@@ -1,4 +1,5 @@
-"""Script Docstring
+"""Module containing base classes for item entries & lists.
+Can be intantiated themselves, or extended into sub-classes.
 """
 #import [package/module]
 import logging
@@ -117,20 +118,22 @@ class ItemEntry:
     @owner.deleter
     def owner(self):
         """Deleter for the self._owner private attribute.
-        Sets the value to None.
+        Sets the value to `None`.
         """
         self._owner = None
 
 
-class ItemList:
-    """
+class ItemList(list):
+    """Base class for lists containing ItemEntry objects.
     """
     def __init__(self, entries: ItemEntry | list | tuple | dict):
-        """
+        """Constructor for the ItemList class.
         """
 
 
 def main():
+    """Module method that's invoked when this file is run directly.
+    """
     pass
 
 
