@@ -27,10 +27,10 @@ bot = commands.Bot(command_prefix=PREFIXES,
 tree = bot.tree
 
 
-def load_cogs(cogs_dir: str = './cogs'):
+async def load_cogs(cogs_dir: str = './cogs'):
 	for filename in os.listdir(cogs_dir):
 		if filename.endswith('.py'):
-			bot.load_extension(f'cogs.{filename[:-3]}')
+			await bot.load_extension(f'cogs.{filename[:-3]}')
 			module_logger.info("%s loaded." % filename[:-3].title().replace("_", ""))
 			print(f'Cog: {filename[:-3].title().replace("_", "")} loaded.')
 		elif filename == "__pycache__":
@@ -43,7 +43,8 @@ def load_cogs(cogs_dir: str = './cogs'):
 #* Module Code
 def main():
 	"""Main Method"""
-	load_cogs()
+	# This prevents Pylance from reporting on "unused" coroutines.
+	load_cogs() # pyright: ignore[reportUnusedCoroutine]
 	bot.run(TOKEN)
 
 
